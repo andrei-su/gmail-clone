@@ -8,6 +8,7 @@ import {
   Menu,
   Notifications,
   Search,
+  // Tune,
 } from '@material-ui/icons';
 // Styles
 import './Header.css';
@@ -25,6 +26,10 @@ function Header() {
         <Search />
         <input type="text" placeholder="Search mail" />
         <ArrowDropDown />
+{/*     !!!--- Replace Arrow icon with Tune icon ---!!!
+        <IconButton>
+          <Tune />
+        </IconButton> */}
       </div>
       <div className="header__right">
         <IconButton>
