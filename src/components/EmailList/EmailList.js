@@ -17,6 +17,7 @@ import {
 } from "@material-ui/icons";
 // Styles
 import "./EmailList.css";
+import EmailRow from "../EmailRow/EmailRow";
 
 function EmailList() {
   return (
@@ -53,6 +54,20 @@ function EmailList() {
         <Section Icon={Inbox} title="Primary" color="red" selected />
         <Section Icon={People} title="Social" color="#1a73e8" />
         <Section Icon={LocalOffer} title="Promotions" color="green" />
+      </div>
+      <div className="emailList__list">
+        <EmailRow
+          title="Twitch"
+          subject="Hey fellow streamer!!!"
+          description="This is a test"
+          time="10pm"
+        />
+        <EmailRow
+          title="Twitch"
+          subject="Hey fellow streamer!!!"
+          description="This is a test"
+          time="10pm"
+        />
       </div>
     </div>
   );
