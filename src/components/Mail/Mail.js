@@ -1,4 +1,6 @@
 import React from "react";
+// React Router
+import { useHistory } from "react-router";
 // Components
 import { IconButton } from "@material-ui/core";
 // Icons
@@ -17,11 +19,13 @@ import {
 import "./Mail.css";
 
 function Mail() {
+  const history = useHistory();
+
   return (
     <div className="mail">
       <div className="mail__tools">
         <div className="mail__toolsLeft">
-          <IconButton>
+          <IconButton onClick={() => history.push("/")}>
             <ArrowBack />
           </IconButton>
           <IconButton>
