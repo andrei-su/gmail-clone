@@ -10,9 +10,12 @@ import {
   Delete,
   Email,
   Error,
+  ExitToApp,
   LabelImportant,
   MoreVert,
   MoveToInbox,
+  Print,
+  UnfoldMore,
   WatchLater,
 } from "@material-ui/icons";
 // Styles
@@ -54,6 +57,26 @@ function Mail() {
           </IconButton>
         </div>
         <div className="mail__toolsRight">
+          <IconButton>
+            <UnfoldMore />
+          </IconButton>
+          <IconButton>
+            <Print />
+          </IconButton>
+          <IconButton>
+            <ExitToApp />
+          </IconButton>
+        </div>
+      </div>
+      <div className="mail__body">
+        <div className="mail__bodyHeader">
+          <h2>Subject</h2>
+          <LabelImportant className="mail__important" />
+          <p>Title</p>
+          <p className="mail__time">10pm</p>
+        </div>
+        <div className="mail__message">
+          <p>Thus is a messagge</p>
         </div>
       </div>
     </div>
