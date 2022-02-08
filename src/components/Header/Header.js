@@ -4,11 +4,11 @@ import { Avatar, IconButton } from '@material-ui/core';
 // Icons
 import {
   Apps,
-  ArrowDropDown,
+  // ArrowDropDown,
   Menu,
   Notifications,
   Search,
-  // Tune,
+  Tune,
 } from '@material-ui/icons';
 // Styles
 import './Header.css';
@@ -25,11 +25,11 @@ function Header() {
       <div className="header__middle">
         <Search />
         <input type="text" placeholder="Search mail" />
-        <ArrowDropDown />
-{/*     !!!--- Replace Arrow icon with Tune icon ---!!!
+        {/* <ArrowDropDown /> */}
+    {/* !!!--- Replace Arrow icon with Tune icon ---!!! */}
         <IconButton>
           <Tune />
-        </IconButton> */}
+        </IconButton>
       </div>
       <div className="header__right">
         <IconButton>
