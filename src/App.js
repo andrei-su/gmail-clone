@@ -1,6 +1,9 @@
 import React from 'react';
 // React Router
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// React Redux
+import { useSelector } from "react-redux";
+import {selectSendMessageIsOpen} from "./features/mailSlice"
 // Components
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -11,6 +14,8 @@ import SendMail from './components/SendMail/SendMail';
 import './App.css';
 
 function App() {
+  const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
+  
   return (
     // BEM naming convention
     <Router>
@@ -27,7 +32,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-        <SendMail />
+        {sendMessageIsOpen && <SendMail />}
       </div>
     </Router>
   );

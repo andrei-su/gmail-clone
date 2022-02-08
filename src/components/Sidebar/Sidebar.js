@@ -1,4 +1,7 @@
 import React from 'react';
+// React Redux
+import { useDispatch } from 'react-redux';
+import { openSendMessage } from '../../features/mailSlice';
 // Components
 import { Button, IconButton } from '@material-ui/core';
 import SidebarOption from '../SidebarOption/SidebarOption';
@@ -19,9 +22,15 @@ import {
 import './Sidebar.css';
 
 function Sidebar() {
+  const dispatch = useDispatch();
+
   return (
     <div className="sidebar">
-      <Button startIcon={<Add fontSize="large" />} className="sidebar__compose">
+      <Button 
+        startIcon={<Add fontSize="large" />} 
+        className="sidebar__compose"
+        onClick={() => dispatch(openSendMessage())}
+      >
         Compose
       </Button>
       <SidebarOption Icon={Inbox} title="Inbox" number={54} selected={true} />
