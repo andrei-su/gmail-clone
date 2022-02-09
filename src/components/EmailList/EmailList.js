@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+// Firebase
+import * as fb from "../../firebase";
 // Components
 import { Checkbox, IconButton } from "@material-ui/core";
 import Section from "../Section/Section";
@@ -20,6 +22,21 @@ import "./EmailList.css";
 import EmailRow from "../EmailRow/EmailRow";
 
 function EmailList() {
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    fb.onSnapshot(
+      fb.query(fb.collection(fb.db, "emails"), fb.orderBy("timestamp", "desc")),
+      (snapshot) =>
+        setEmails(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+    );
+  }, []);
+
   return (
     <div className="emailList">
       <div className="emailList__settings">
@@ -56,6 +73,16 @@ function EmailList() {
         <Section Icon={LocalOffer} title="Promotions" color="green" />
       </div>
       <div className="emailList__list">
+      {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <EmailRow
+            id={id}
+            key={id}
+            title={to}
+            subject={subject}
+            description={message}
+            time={new Date(timestamp?.toDate()).toUTCString()}
+          />
+        ))}
         <EmailRow
           title="Twitch"
           subject="Hey fellow streamer!!!"

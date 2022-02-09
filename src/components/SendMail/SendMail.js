@@ -20,7 +20,7 @@ function SendMail() {
 	const onSubmit = (formData) => {
 		console.log(formData);
 		fb.addDoc(fb.collection(fb.db, "emails"), {
-			to: formData,
+			to: formData.to,
 			subject: formData.subject,
 			message: formData.message,
 			timestamp: fb.serverTimestamp(),
