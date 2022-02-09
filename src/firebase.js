@@ -23,16 +23,13 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBbWa73qNuuOfUywgsnLepqmtG7cT259cY",
-  authDomain: "g-mail-clone9.firebaseapp.com",
-  projectId: "g-mail-clone9",
-  storageBucket: "g-mail-clone9.appspot.com",
-  messagingSenderId: "306084055104",
-  appId: "1:306084055104:web:fdaa415ccd8a92e3ddf7a5"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_PROJECT_ID + ".firebaseapp.com",
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_PROJECT_ID + ".appspot.com",
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase
 // eslint-disable-next-line no-unused-vars

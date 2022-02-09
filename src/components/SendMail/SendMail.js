@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 // React Redux
 import { useDispatch } from "react-redux";
 import { closeSendMessage } from "../../features/mailSlice";
+// Firebase
+import * as fb from "../../firebase";
 // Components
 import { Button } from "@material-ui/core";
 // Icons
@@ -15,8 +17,15 @@ function SendMail() {
 	const { register, handleSubmit, watch, errors } = useForm();
 	const dispatch = useDispatch();
 
-	const onSubmit = (data) => {
-		console.log(data);
+	const onSubmit = (formData) => {
+		console.log(formData);
+		fb.addDoc(fb.collection(fb.db, "emails"), {
+			to: formData,
+			subject: formData.subject,
+			message: formData.message,
+			timestamp: fb.serverTimestamp(),
+		});
+		dispatch(closeSendMessage());
 	};
 
 	return (
