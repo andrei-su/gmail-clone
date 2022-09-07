@@ -16,7 +16,9 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  signInWithPopup,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -37,10 +39,12 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore();
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
 export {
   db,
   auth,
+  provider,
   collection,
   onSnapshot,
   addDoc,
@@ -52,5 +56,6 @@ export {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  signInWithPopup,
   signInWithEmailAndPassword,
 };
